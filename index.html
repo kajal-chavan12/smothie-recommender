@@ -4,77 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smoothie Recommender</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #4caf50;
-    }
-    .ingredients {
-      margin: 20px 0;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <h1>🥤 Smoothie Recommender</h1>
+    <p>Select your ingredients:</p>
 
-  <h1>🥤 Smoothie Recommender</h1>
-  <p>Select your ingredients:</p>
+    <div class="ingredients">
+      <label><input type="checkbox" value="banana" /> Banana</label><br />
+      <label><input type="checkbox" value="strawberry" /> Strawberry</label><br />
+      <label><input type="checkbox" value="spinach" /> Spinach</label><br />
+      <label><input type="checkbox" value="blueberry" /> Blueberry</label><br />
+      <label><input type="checkbox" value="peanut butter" /> Peanut Butter</label><br />
+      <label><input type="checkbox" value="avocado" /> Avocado</label><br />
+      <label><input type="checkbox" value="yogurt" /> Yogurt</label><br />
+    </div>
 
-  <div class="ingredients">
-    <label><input type="checkbox" value="banana" /> Banana</label><br />
-    <label><input type="checkbox" value="strawberry" /> Strawberry</label><br />
-    <label><input type="checkbox" value="spinach" /> Spinach</label><br />
-    <label><input type="checkbox" value="blueberry" /> Blueberry</label><br />
-    <label><input type="checkbox" value="peanut butter" /> Peanut Butter</label><br />
-    <label><input type="checkbox" value="avocado" /> Avocado</label><br />
-    <label><input type="checkbox" value="yogurt" /> Yogurt</label><br />
+    <button onclick="recommendSmoothie()">Get Smoothie Recommendation</button>
+
+    <div id="result"></div>
   </div>
 
-  <button onclick="recommendSmoothie()">Get Smoothie Recommendation</button>
-
-  <div id="result"></div>
-
-  <script>
-    function recommendSmoothie() {
-      const selected = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-
-      let result = "";
-
-      if (selected.includes("banana") && selected.includes("strawberry") && selected.includes("yogurt")) {
-        result = "🍓 Strawberry Banana Yogurt Smoothie";
-      } else if (selected.includes("spinach") && selected.includes("avocado") && selected.includes("banana")) {
-        result = "🥑 Green Detox Smoothie";
-      } else if (selected.includes("blueberry") && selected.includes("banana") && selected.includes("yogurt")) {
-        result = "🫐 Blueberry Banana Smoothie";
-      } else if (selected.includes("peanut butter") && selected.includes("banana")) {
-        result = "🥜 Peanut Butter Banana Smoothie";
-      } else {
-        result = "Try combining banana, yogurt, or berries for a great smoothie!";
-      }
-
-      document.getElementById("result").innerText = result;
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
